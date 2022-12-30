@@ -1,0 +1,15 @@
+{% extends '../base.html' %}
+
+{% block title %}天真高中留言板{% endblock %}
+
+{% block content %}
+<ul>
+    {% for msg in message_list%}
+    <li>
+        {{ msg.created }}
+        <a href="{% url 'msgdetail_url' msg.id %}">{{ msg.subject}}</a>
+        |<a href="{% url 'msgdetail_url' msg.id %}delete">刪除</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
